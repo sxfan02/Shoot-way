@@ -1,0 +1,32 @@
+﻿<Properties StartupConfiguration="{5DE304FE-96B7-0A7C-5AC5-13DA8EAD1351}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ShooterEnemyScript.cs">
+    <Files>
+      <File FileName="Assets/Scripts/PlayerMovement.cs" Line="67" Column="10" />
+      <File FileName="Assets/Scripts/ShooterEnemyScript.cs" Line="64" Column="54" />
+      <File FileName="Assets/Scripts/BulletScript.cs" Line="24" Column="24" />
+      <File FileName="Assets/Scriptables/PlayerStatusScriptable.cs" Line="9" Column="37" />
+      <File FileName="Assets/Scripts/PlayerShootScript.cs" Line="40" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Shoot-way" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scriptables" expanded="True" />
+              <Node name="Scripts" expanded="True">
+                <Node name="ShooterEnemyScript.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="58c7fd35-1913-43d3-90b7-ca897a03422e" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

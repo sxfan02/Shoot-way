@@ -11,6 +11,7 @@ public class ShooterEnemyScript : MonoBehaviour
     private float timeToNext = 0f;
     public bool readyToFire = true;
     private float distToPlayer;
+    private int health = 100;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,21 @@ public class ShooterEnemyScript : MonoBehaviour
         {
             readyToFire = true;
         }
+
+        if (health <= 0)
+        {
+            Destroy(this.gameObject, 0f);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            BulletScript bs = collision.gameObject.GetComponent<BulletScript>();
+            health -= bs.damage;
+            Debug.Log(health);
+        }
     }
 
     IEnumerator miniShoot()
@@ -44,21 +60,17 @@ public class ShooterEnemyScript : MonoBehaviour
         GameObject myBullet;
         BulletScript bs;
 
-        myBullet = Instantiate(bullet, this.transform.position, this.transform.rotation);
-        bs = myBullet.GetComponent<BulletScript>();
-        bs.parent = this.gameObject;
-        yield return new WaitForSeconds(0.2f);
+        //rapid fire 3 bullets
+        for (int i = 0; i < 3; i++)
+        {
+            myBullet = Instantiate(bullet, this.transform.position, this.transform.rotation);
+            bs = myBullet.GetComponent<BulletScript>();
+            bs.parent = this.gameObject;
+            bs.damage = 99999;
+            yield return new WaitForSeconds(0.2f);
+        }
 
-        myBullet = Instantiate(bullet, this.transform.position, this.transform.rotation);
-        bs = myBullet.GetComponent<BulletScript>();
-        bs.parent = this.gameObject;
-        yield return new WaitForSeconds(0.2f);
-
-        myBullet = Instantiate(bullet, this.transform.position, this.transform.rotation);
-        bs = myBullet.GetComponent<BulletScript>();
-        bs.parent = this.gameObject;
-        yield return new WaitForSeconds(0.2f);
-
+        //shuffle back forwards after recoil
         for (int i = 0; i < 5; i++)
         {
             transform.Translate(Vector3.forward * 0.1f);

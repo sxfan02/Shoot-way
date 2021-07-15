@@ -6,11 +6,14 @@ public class BulletScript : MonoBehaviour
 {
     public int speed = 10;
     public GameObject parent;
+    public int damage;
 
     // Start is called before the first frame update
     void Start()
     {
         Destroy(this.gameObject, 2.0f);
+        Debug.Log(damage);
+
     }
 
     // Update is called once per frame

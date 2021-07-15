@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerShootScript : MonoBehaviour
 {
-    public float cooldown = 1.0f;
     public GameObject bullet;
+    public GunTypeScriptable gun;
 
     private float timeToNext = 0;
     private bool readyToFire = true;
@@ -30,19 +30,20 @@ public class PlayerShootScript : MonoBehaviour
             transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
         }
 
-        bool inRange = transform.eulerAngles.y < 15 ||
-            transform.eulerAngles.y > 345;
+        bool inRange = transform.eulerAngles.y < 45 ||
+            transform.eulerAngles.y > 315;
 
         if (Input.GetMouseButton(0) && readyToFire && inRange)
         {
             readyToFire = false;
-            timeToNext = cooldown + Time.time;
+            timeToNext = gun.cooldown + Time.time;
 
             GameObject myBullet;
             BulletScript bs;
             myBullet = Instantiate(bullet, this.transform.position, this.transform.rotation);
             bs = myBullet.GetComponent<BulletScript>();
             bs.parent = this.gameObject;
+            bs.damage = gun.damage;
         }
 
         if (Time.time > timeToNext)
